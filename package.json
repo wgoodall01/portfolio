@@ -1,0 +1,19 @@
+{
+  "name": "wgoodall01.github.io",
+  "version": "1.0.0",
+  "description": "Personal site",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wgoodall01/wgoodall01.github.io.git"
+  },
+  "author": "William Goodall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wgoodall01/wgoodall01.github.io/issues"
+  },
+  "homepage": "https://github.com/wgoodall01/wgoodall01.github.io#readme"
+}
