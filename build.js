@@ -7,6 +7,7 @@ var htmlMinifier = require("metalsmith-html-minifier");
 var cssMinifier = require("metalsmith-clean-css");
 var jsMinifier = require("metalsmith-uglify");
 var cleanUrls = require("metalsmith-clean-urls");
+var construction = require("./lib/construction");
 
 // Configuration - load from env with defaults sometimes
 var cfg = {
@@ -22,6 +23,9 @@ var cfg = {
 
 var m = new Metalsmith(__dirname);
 m.source("./src");
+
+//If a page is under construction, don't show it
+m.use(construction());
 
 //Compile all sass files in src to stylesheets in `out`, using
 // partials and other stuff in `scss/` to help out.
