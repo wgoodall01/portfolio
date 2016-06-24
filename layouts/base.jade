@@ -2,6 +2,10 @@ doctype html
 head
     title= title || "William Goodall"
 
+    //Include styles
+    link(rel="stylesheet", href="/css/main.css")
+
 body
-    .main!=contents
+    .container-fluid
+        .main!=contents
     block foot

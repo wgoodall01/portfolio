@@ -1,8 +1,7 @@
-@import "_colors";
 @import "_variables";
 @import "bootstrap";
 
-body{
-  background-color:$red;
+.container-fluid{
+  max-width:900px;
 }
 

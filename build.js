@@ -50,7 +50,13 @@ if(cfg.dev){
     //Load metalsmith-watch
     var watch = require("metalsmith-watch");
     m.use(watch({
-        livereload: true
+        livereload: true,
+        paths:{
+            "scss/**/*": "**/*.scss",
+            "layouts/**/*": "**/*",
+            "lib/**/*": "**/*",
+            "${source}/**/*": true
+        }
     }));
 }
 
