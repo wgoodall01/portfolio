@@ -6,6 +6,7 @@ var jade = require("metalsmith-jade");
 var htmlMinifier = require("metalsmith-html-minifier");
 var cssMinifier = require("metalsmith-clean-css");
 var jsMinifier = require("metalsmith-uglify");
+var cleanUrls = require("metalsmith-clean-urls");
 
 // Configuration - load from env with defaults sometimes
 var cfg = {
@@ -45,6 +46,9 @@ m.use(layouts({
 m.use(htmlMinifier());
 m.use(cssMinifier());
 m.use(jsMinifier());
+
+//Clean all HTML endpoints
+m.use(cleanUrls());
 
 if(cfg.dev){
     //Load metalsmith-watch
