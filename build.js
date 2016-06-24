@@ -3,6 +3,9 @@ var sass = require("metalsmith-sass");
 var markdown = require("metalsmith-markdown");
 var layouts = require("metalsmith-layouts");
 var jade = require("metalsmith-jade");
+var htmlMinifier = require("metalsmith-html-minifier");
+var cssMinifier = require("metalsmith-clean-css");
+var jsMinifier = require("metalsmith-uglify");
 
 // Configuration - load from env with defaults sometimes
 var cfg = {
@@ -20,8 +23,11 @@ var m = new Metalsmith(__dirname);
 m.source("./src");
 
 //Compile all sass files in src to stylesheets in `out`, using
-// partials and other stuff in `scss/` to help out
-m.use(sass({includePaths:[__dirname + "/scss"]}));
+// partials and other stuff in `scss/` to help out.
+m.use(sass({includePaths:[
+    __dirname + "/scss",
+    __dirname + "/node_modules/bootstrap/scss"
+]}));
 
 //Compile all markdown files to html
 m.use(markdown());
@@ -34,6 +40,11 @@ m.use(layouts({
     engine:'jade',
     directory:'layouts'
 }));
+
+//Minify all HTML, CSS, JS
+m.use(htmlMinifier());
+m.use(cssMinifier());
+m.use(jsMinifier());
 
 if(cfg.dev){
     //Load metalsmith-watch
@@ -55,10 +66,10 @@ m.build(function(err){
 
 if(cfg.dev){
     //Start dev server with express
-    var express = require('express')
+    var express = require('express');
     app = express();
     app.use(express.static(__dirname + "/out"));
-    app.listen(cfg.port)
+    app.listen(cfg.port);
     console.log(`  >>> Started dev server on http://localhost:${cfg.port} <<<  `);
 }
 
