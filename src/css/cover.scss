@@ -1,0 +1,21 @@
+@import "_variables.scss";
+@import "mixins/_breakpoints";
+
+body{
+  background-color: $brand-primary;
+}
+
+.nav-link, .navbar-brand{
+  color: $gray-light !important;
+}
+
+.main-card {
+  margin:0 auto;
+
+  width: auto;
+
+  @include media-breakpoint-up(sm) {
+    width: 300px;
+    margin-top:200px;
+  }
+}

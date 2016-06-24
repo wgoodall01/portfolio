@@ -1,0 +1,11 @@
+head
+    title= title + " | William Goodall"
+    meta(name="viewport", content="width=device-width")
+    //Include styles
+    link(rel="stylesheet", href="/css/main.css")
+
+    each cssUrl in styles || []
+        link(rel="stylesheet", href=cssUrl)
+
+    //Font awesome css
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css")

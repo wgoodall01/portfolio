@@ -21,6 +21,7 @@
     "flickrapi": "^0.4.2",
     "metalsmith": "^2.1.0",
     "metalsmith-clean-css": "^5.0.0",
+    "metalsmith-clean-urls": "^1.1.0",
     "metalsmith-html-minifier": "^2.0.0",
     "metalsmith-jade": "^2.0.2",
     "metalsmith-layouts": "^1.6.5",
