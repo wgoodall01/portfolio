@@ -2,20 +2,41 @@
 @import "mixins/_breakpoints";
 
 body{
-  background-color: $brand-primary;
-}
-
-.nav-link, .navbar-brand{
-  color: $gray-light !important;
+  background: url("/img/cover.jpg") no-repeat center center fixed;
+  //background-position: center center;
+  background-size:cover;
+  filter: blur(10px);
+  color:white;
 }
 
 .main-card {
-  margin:0 auto;
+  background-color: fade-out(black, 0.2);
+  padding:10px;
 
-  width: auto;
-
-  @include media-breakpoint-up(sm) {
-    width: 300px;
-    margin-top:200px;
+  @include media-breakpoint-up(sm){
+    padding:70px;
   }
+
+  border-radius:10px;
+  //border: 5px solid white;
+
+}
+
+.links-container {
+  display:flex;
+  justify-content: space-between;
+  a {
+    font-family: "Oswald", Arial, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:white;
+  }
+}
+
+
+.name{
+  font-size:80px;
+  font-family:"Roboto Slab", Arial, sans-serif;
+  text-align:center;
+  font-weight:bold;
 }
