@@ -1,5 +1,9 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
+echo ""
+echo ""
+echo "  >>> Starting Deploy <<<  "
+echo ""
 
 # Save some useful information
 SOURCE_BRANCH="master"
@@ -26,18 +30,14 @@ chmod 600 $TRAVIS_BUILD_DIR/deploy/deploy_key
 eval `ssh-agent -s`
 ssh-add $TRAVIS_BUILD_DIR/deploy/deploy_key
 
-
-#Clone master from target repo (user pages) into out/
-# Create a new empty branch if master doesn't exist yet (for any reason)
-cd $TRAVIS_BUILD_DIR
-git clone $REPO out
-
-# Clean out existing contents
-rm -rf $TRAVIS_BUILD_DIR/out/**/* || exit 0
-
 # Run compile script
 cd $TRAVIS_BUILD_DIR
 doCompile
+
+#Set up git repo
+cd $TRAVIS_BUILD_DIR/out
+git init
+#git remote add orgin $REPO
 
 # Now let's go have some fun with the cloned repo
 cd $TRAVIS_BUILD_DIR/out
@@ -52,9 +52,6 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 #    exit 0
 #fi
 
-echo "Outputted files"
-ls $TRAVIS_BUILD_DIR/out
-
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
 git add .
@@ -62,4 +59,4 @@ git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 
 # Now that we're all set up, we can push.
-git push $REPO
+git push --force $REPO
