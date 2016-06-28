@@ -1,10 +1,9 @@
 language: node_js
 node_js: 6
-script: bash ./deploy.sh
-before_install:
-- openssl aes-256-cbc -K $encrypted_6f5dc187af75_key -iv $encrypted_6f5dc187af75_iv -in key.enc -out key -d
+script: bash ./deploy/deploy.sh
 
-env:
-  global:
-  - ENCRYPTION_LABEL: 6f5dc187af75
-  - COMMIT_AUTHOR_EMAIL: 6f5dc187af75
+# Load encrypted deploy key to wgoodall01.github.io
+before_install:
+- openssl aes-256-cbc -K $encrypted_ae5447c9efa7_key -iv $encrypted_ae5447c9efa7_iv -in ./deploy/deploy_key.enc -out ./deploy/deploy_key -d
+
+
