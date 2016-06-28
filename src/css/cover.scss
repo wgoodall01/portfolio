@@ -1,17 +1,16 @@
 @import "_variables.scss";
 @import "mixins/_breakpoints";
 
-body{
-  background: url("/img/cover.jpg") no-repeat center center fixed;
+.cover-img{
+  background: url("/img/cover-sm.jpg") no-repeat center center fixed;
   background-color: #2c2c2c;
   background-size:cover;
-  color:white;
   height:100%;
+  width:100%;
   margin:0;
-}
-
-.items-container{
-  margin:0 auto;
+  z-index:-10;
+  object-fit:cover;
+  position:absolute;
 }
 
 .links-container{
@@ -32,6 +31,11 @@ body{
 }
 
 .link a{
+  font-family: "Oswald", Arial, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  color:white;
+
   outline-offset:-2px;
   outline:1px solid fade-out(white, 1);
   transition:outline .1s, outline-offset .1s;
@@ -43,15 +47,11 @@ body{
   }
 }
 
-.links-container a {
-  font-family: "Oswald", Arial, sans-serif;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  color:white;
-}
-
-.band{
+.dim{
   background-color:fade-out(black, 0.4);
+  height:100%;
+  width:100%;
+  color:white;
 }
 
 .name{
