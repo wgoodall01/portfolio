@@ -71,13 +71,22 @@ if(cfg.dev){
     }));
 }
 
+
+//Logging
+m.use(function(files, metalsmith, next){
+    for(filename in files){
+        console.log(`${filename} <- ${files[filename].title || "[untitled]" }`)
+    }
+    next();
+});
+
 m.destination("./out");
 m.build(function(err){
     if(err){
-        console.log("ERROR");
+        console.log("  >>> ERROR <<<  ");
         console.log(err);
     } else{
-        console.log("DONE");
+        console.log("  >>> DONE BUILD <<<  ");
     }
 });
 
