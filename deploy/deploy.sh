@@ -54,7 +54,7 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git add origin $REPO
+git remote add origin $REPO
 git checkout master
 git add .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
