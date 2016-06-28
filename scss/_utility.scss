@@ -1,6 +1,5 @@
-.center-all{
-  position:absolute;
+.center-v{
+  position:relative;
   top:50%;
-  left:50%;
-  transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%);
 }

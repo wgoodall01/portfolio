@@ -8,6 +8,7 @@ var cssMinifier = require("metalsmith-clean-css");
 var jsMinifier = require("metalsmith-uglify");
 var cleanUrls = require("metalsmith-clean-urls");
 var construction = require("./lib/construction");
+var autoprefixer = require("metalsmith-autoprefixer");
 
 // Configuration - load from env with defaults sometimes
 var cfg = {
@@ -45,6 +46,9 @@ m.use(layouts({
     engine:'jade',
     directory:'layouts'
 }));
+
+//Autoprefix the CSS
+m.use(autoprefixer());
 
 //Minify all HTML, CSS, JS
 m.use(htmlMinifier());

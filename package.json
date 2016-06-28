@@ -20,6 +20,7 @@
     "bootstrap": "^4.0.0-alpha.2",
     "flickrapi": "^0.4.2",
     "metalsmith": "^2.1.0",
+    "metalsmith-autoprefixer": "^1.1.0",
     "metalsmith-clean-css": "^5.0.0",
     "metalsmith-clean-urls": "^1.1.0",
     "metalsmith-html-minifier": "^2.0.0",
