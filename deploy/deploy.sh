@@ -23,6 +23,11 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]
     exit 0
 fi
 
+# Get the decrypted deploy key and add it to SSH
+chmod 600 $TRAVIS_BUILD_DIR/deploy/deploy_key
+eval `ssh-agent -s`
+ssh-add $TRAVIS_BUILD_DIR/deploy/deploy_key
+
 
 #Clone master from target repo (user pages) into out/
 # Create a new empty branch if master doesn't exist yet (for any reason)
@@ -58,11 +63,6 @@ fi
 git add .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
-# Get the decrypted deploy key
-
-chmod 600 $TRAVIS_BUILD_DIR/deploy/deploy_key
-eval `ssh-agent -s`
-ssh-add $TRAVIS_BUILD_DIR/deploy/deploy_key
 
 # Now that we're all set up, we can push.
 git push $REPO $TARGET_BRANCH
