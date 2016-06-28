@@ -3,7 +3,7 @@
 
 body{
   background: url("/img/cover.jpg") no-repeat center center fixed;
-  //background-position: center center;
+  background-color: #2c2c2c;
   background-size:cover;
   color:white;
   height:100%;
@@ -29,7 +29,18 @@ body{
 .link{
   flex: 0 1 auto;
   align-self: auto;
-  //margin-top:30px;
+}
+
+.link a{
+  outline-offset:-2px;
+  outline:1px solid fade-out(white, 1);
+  transition:outline .2s, outline-offset .15s;
+  &:hover{
+    cursor:pointer;
+    outline-offset:5px;
+    outline:1px solid white;
+    text-decoration:none;
+  }
 }
 
 .links-container a {
@@ -51,5 +62,5 @@ body{
     text-align:right;
   }
 
-  font-weight:bold;
+  font-weight:600;
 }
