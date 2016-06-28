@@ -2,6 +2,8 @@
 set -e # Exit with nonzero exit code if anything fails
 
 # Save some useful information
+SOURCE_BRANCH="master"
+
 TARGET_BRANCH="master"
 REPO="git@github.com:wgoodall01/wgoodall01.github.io.git"
 COMMIT_AUTHOR_EMAIL="wgoodall01@gmail.com"
