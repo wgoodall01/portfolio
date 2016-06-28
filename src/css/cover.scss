@@ -34,7 +34,7 @@ body{
 .link a{
   outline-offset:-2px;
   outline:1px solid fade-out(white, 1);
-  transition:outline .2s, outline-offset .15s;
+  transition:outline .1s, outline-offset .1s;
   &:hover{
     cursor:pointer;
     outline-offset:5px;
