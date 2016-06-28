@@ -60,4 +60,4 @@ git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 # Now that we're all set up, we can push.
 git config --global push.default simple
-git push --force $REPO
+git push --force --set-upstream $REPO
