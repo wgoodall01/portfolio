@@ -3,8 +3,6 @@ set -e # Exit with nonzero exit code if anything fails
 
 # Save some useful information
 SOURCE_BRANCH="master"
-
-TARGET_BRANCH="master"
 REPO="git@github.com:wgoodall01/wgoodall01.github.io.git"
 COMMIT_AUTHOR_EMAIL="wgoodall01@gmail.com"
 SHA=`git rev-parse --verify HEAD`
@@ -33,9 +31,6 @@ ssh-add $TRAVIS_BUILD_DIR/deploy/deploy_key
 # Create a new empty branch if master doesn't exist yet (for any reason)
 cd $TRAVIS_BUILD_DIR
 git clone $REPO out
-cd out
-git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
-cd $TRAVIS_BUILD_DIR
 
 # Clean out existing contents
 rm -rf $TRAVIS_BUILD_DIR/out/**/* || exit 0
@@ -48,7 +43,6 @@ doCompile
 cd $TRAVIS_BUILD_DIR/out
 
 #Set git configuration
-
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
@@ -65,4 +59,4 @@ git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 
 # Now that we're all set up, we can push.
-git push $REPO $TARGET_BRANCH
+git push $REPO
