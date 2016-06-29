@@ -10,7 +10,7 @@ var cleanUrls = require("metalsmith-clean-urls");
 var construction = require("./lib/construction");
 var autoprefixer = require("metalsmith-autoprefixer");
 
-// Configuration - load from env with defaults sometimes
+//     ------------------------------   Configuration         ------------------------------
 var cfg = {
     flickr:{
         key: process.env.FLICKR_API_KEY,
@@ -25,6 +25,9 @@ var cfg = {
 var m = new Metalsmith(__dirname);
 m.source("./src");
 
+
+
+//     ------------------------------   Compilation           ------------------------------
 //If a page is under construction, don't show it
 m.use(construction());
 
@@ -47,6 +50,7 @@ m.use(layouts({
     directory:'layouts'
 }));
 
+//     ------------------------------   Post-Processing       ------------------------------
 //Autoprefix the CSS
 m.use(autoprefixer());
 
@@ -58,6 +62,7 @@ m.use(jsMinifier());
 //Clean all HTML endpoints
 m.use(cleanUrls());
 
+//     ------------------------------   Dev Info              ------------------------------
 if(cfg.dev){
     //Load metalsmith-watch
     var watch = require("metalsmith-watch");
@@ -80,6 +85,7 @@ m.use(function(files, metalsmith, next){
     next();
 });
 
+//     ------------------------------   Output                ------------------------------
 m.destination("./out");
 m.build(function(err){
     if(err){
