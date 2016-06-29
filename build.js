@@ -9,6 +9,7 @@ var jsMinifier = require("metalsmith-uglify");
 var cleanUrls = require("metalsmith-clean-urls");
 var construction = require("./lib/construction");
 var autoprefixer = require("metalsmith-autoprefixer");
+var flickr = require('./lib/flickr');
 
 //     ------------------------------   Configuration         ------------------------------
 var cfg = {
@@ -28,6 +29,9 @@ m.source("./src");
 
 
 //     ------------------------------   Compilation           ------------------------------
+//Add flickr content to `flickr_photos` local
+
+
 //If a page is under construction, don't show it
 m.use(construction());
 
@@ -42,7 +46,9 @@ m.use(sass({includePaths:[
 m.use(markdown());
 
 //Compile all jade files to html
-m.use(jade());
+m.use(jade({
+    useMetadata:true
+}));
 
 //Add page contents to layouts
 m.use(layouts({
