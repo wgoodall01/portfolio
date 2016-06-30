@@ -3,7 +3,7 @@ nav.navbar.navbar-light
     button.navbar-toggler.hidden-sm-up.pull-xs-right(type="button" data-toggle="collapse" data-target="#navCollapse")
         i.fa.fa-bars
     ul#navCollapse.collapse.navbar-toggleable-xs
-        div.nav.navbar-nav
+        div.nav.navbar-nav.pull-xs-right
             each navName in ["Projects", "Photography", "Overview"]
                 - var isActive = navName.toLowerCase() == title.toLowerCase();
                 li.nav-item(class=isActive ? "active" : undefined)
