@@ -10,10 +10,7 @@ flickr:
     set_id: "72157667632529635"
     extras: "url_o, description"
 ---
-
-h1 Photography Test
-
-.gallery-container
+.gallery-container.row
     each photo in flickr_photos.photo
-        - var photoUrl = `//www.flickr.com/photos/${flickr_photos.ownername}/${photo.id}`;
-        img.picture(src=photo.url_o)
+        .col-md-6
+            img.picture.img-fluid.col-md-6(src=photo.url_o)
