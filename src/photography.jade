@@ -1,7 +1,19 @@
 ---
 title: Photography
 layout: page.jade
-construction: true
+construction: false
+styles:
+- "/css/photography.css"
+scripts:
+- "/js/photography.js"
+flickr:
+    set_id: "72157667632529635"
+    extras: "url_o, description"
 ---
 
-h1 Photography
+h1 Photography Test
+
+.gallery-container
+    each photo in flickr_photos.photo
+        - var photoUrl = `//www.flickr.com/photos/${flickr_photos.ownername}/${photo.id}`;
+        img.picture(src=photo.url_o)

@@ -14,8 +14,8 @@ var flickr = require('./lib/flickr');
 //     ------------------------------   Configuration         ------------------------------
 var cfg = {
     flickr:{
-        key: process.env.FLICKR_API_KEY,
-        secret: process.env.FLICKR_API_SECRET
+        apiKey: process.env.FLICKR_API_KEY,
+        apiSecret: process.env.FLICKR_API_SECRET
     },
     dev: process.env.DEV && 
         ['true', 'y', 't', 'yes', '1'].indexOf(process.env.DEV.toLowerCase()) != -1,
@@ -27,10 +27,9 @@ var m = new Metalsmith(__dirname);
 m.source("./src");
 
 
-
 //     ------------------------------   Compilation           ------------------------------
 //Add flickr content to `flickr_photos` local
-
+m.use(flickr(cfg.flickr));
 
 //If a page is under construction, don't show it
 m.use(construction());

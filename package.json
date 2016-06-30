@@ -18,7 +18,7 @@
   "homepage": "https://github.com/wgoodall01/wgoodall01.github.io#readme",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
-    "flickrapi": "^0.4.2",
+    "flickr-sdk": "^1.2.2",
     "metalsmith": "^2.1.0",
     "metalsmith-autoprefixer": "^1.1.0",
     "metalsmith-clean-css": "^5.0.0",
