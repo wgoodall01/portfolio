@@ -8,4 +8,10 @@
 
 .picture{
   margin:5px;
+
+  transition: transform .2s;
+  &:hover {
+    transform: scale(1.1, 1.1);
+    z-index:1000;
+  }
 }
