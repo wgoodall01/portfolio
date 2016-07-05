@@ -1,6 +1,8 @@
 # Deploy key for Travis
 deploy/deploy_key
 
+# Local env vars
+env.sh
 
 #Flickr data
 data/
