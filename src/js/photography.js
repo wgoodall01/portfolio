@@ -7,7 +7,7 @@ $(document).ready(function(){
     $(".picture").click(function(e){
         if(!self){
             self = $(this);
-            lightboxPhoto.attr("src", self.attr("data-original-size"));
+            lightboxPhoto.removeAttr("src").attr("src", self.attr("data-original-size"));
             lightboxContainer.fadeIn(); // even though it's async, this sets display:block
             self.animate({"opacity": 0}); //doesn't set display:none
 
