@@ -10,6 +10,7 @@ var cleanUrls = require("metalsmith-clean-urls");
 var construction = require("./lib/construction");
 var autoprefixer = require("metalsmith-autoprefixer");
 var flickr = require('./lib/flickr');
+var github = require("./lib/github");
 
 //     ------------------------------   Configuration         ------------------------------
 var cfg = {
@@ -30,6 +31,9 @@ m.source("./src");
 //     ------------------------------   Compilation           ------------------------------
 //Add flickr content to `flickr_photos` local
 m.use(flickr(cfg.flickr));
+
+//Add github content to `github_content` local
+m.use(github());
 
 //If a page is under construction, don't show it
 m.use(construction());

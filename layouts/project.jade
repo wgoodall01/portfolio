@@ -1,0 +1,19 @@
+doctype html
+
+- var styles = styles || [];
+- styles.push("/css/project.css");
+
+include _head
+
+body
+    .container-fluid
+        include _navbar
+        h1.github-name.m-t-1= github_data.name
+        div.m-b-2: em.text-muted= github_data.description
+        .m.t-2.m-b-2!= content
+
+
+
+
+
+    include _scripts
