@@ -11,6 +11,8 @@ body
         h1.github-name.m-t-1= github_data.name
         div.m-b-2: em.text-muted= github_data.description
         .m.t-2.m-b-2!= content
+        h4 Readme
+        pre= JSON.stringify(github_readme, null, 2)
 
 
 

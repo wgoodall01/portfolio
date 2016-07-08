@@ -1,6 +1,7 @@
 ---
 title: Portfolio
 layout: project.jade
+construction: true
 
 github:
     owner: "wgoodall01"
