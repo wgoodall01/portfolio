@@ -31,8 +31,8 @@ m.source("./src");
 //Add flickr content to `flickr_photos` local
 m.use(flickr(cfg.flickr));
 
-//If a page is under construction, don't show it
-m.use(construction());
+//If a page is under construction && not in dev mode, don't show it
+m.use(construction(cfg.dev));
 
 //Compile all sass files in src to stylesheets in `out`, using
 // partials and other stuff in `scss/` to help out.
