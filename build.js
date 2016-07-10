@@ -11,6 +11,7 @@ var construction = require("./lib/construction");
 var autoprefixer = require("metalsmith-autoprefixer");
 var flickr = require('./lib/flickr');
 var github = require("./lib/github");
+var indexer = require("./lib/indexer");
 
 //     ------------------------------   Configuration         ------------------------------
 var cfg = {
@@ -37,6 +38,9 @@ m.use(flickr(cfg.flickr));
 
 //Add github content to `github_content` local
 m.use(github(cfg.github));
+
+//Build index pages
+m.use(indexer());
 
 //If a page is under construction && not in dev mode, don't show it
 m.use(construction(cfg.dev));
