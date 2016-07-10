@@ -92,12 +92,21 @@ m.use(function(files, metalsmith, next){
 
 //     ------------------------------   Output                ------------------------------
 m.destination("./out");
+
+var exitIfNotDev = function(code){
+    if(!cfg.dev){
+        process.exit(code);
+    }
+};
+
 m.build(function(err){
     if(err){
         console.log("  >>> ERROR <<<  ");
         console.log(err);
+        exitIfNotDev(1);
     } else{
         console.log("  >>> DONE BUILD <<<  ");
+        exitIfNotDev(0);
     }
 });
 
