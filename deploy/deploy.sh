@@ -57,7 +57,8 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 git remote add origin $REPO
 git checkout -b master
 git add .
-git commit -m "Deploy to GitHub Pages on $(date)\nSHA: ${SHA}"
+git commit -m "Deploy to GitHub Pages on $(date)
+SHA: ${SHA}"
 git config --global push.default simple
 git push --force --set-upstream origin master
 
