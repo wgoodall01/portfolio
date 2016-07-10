@@ -22,7 +22,7 @@ var cfg = {
     github:{
         apiToken: process.env.GITHUB_API_TOKEN
     },
-    dev: process.env.DEV && 
+    dev: process.env.DEV &&
         ['true', 'y', 't', 'yes', '1'].indexOf(process.env.DEV.toLowerCase()) != -1,
     port: process.env.PORT || 8080
 };
@@ -87,7 +87,7 @@ if(cfg.dev){
             "scss/**/*": "**/*.scss",
             "layouts/**/*": "**/*",
             "lib/**/*": "**/*",
-            "${source}/**/*": true
+            "${source}/**/*": "**/*"
         }
     }));
 }
