@@ -18,6 +18,9 @@ var cfg = {
         apiKey: process.env.FLICKR_API_KEY,
         apiSecret: process.env.FLICKR_API_SECRET
     },
+    github:{
+        apiToken: process.env.GITHUB_API_TOKEN
+    },
     dev: process.env.DEV && 
         ['true', 'y', 't', 'yes', '1'].indexOf(process.env.DEV.toLowerCase()) != -1,
     port: process.env.PORT || 8080
@@ -33,7 +36,7 @@ m.source("./src");
 m.use(flickr(cfg.flickr));
 
 //Add github content to `github_content` local
-m.use(github());
+m.use(github(cfg.github));
 
 //If a page is under construction && not in dev mode, don't show it
 m.use(construction(cfg.dev));
