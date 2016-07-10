@@ -7,17 +7,22 @@
   height: 600px;
 }
 
+.column-container {
+  column-width: 300px;
+}
+
 .picture{
-  margin:5px;
-  box-shadow: 0 0 5px fade-out(black, .9);
+  border: 1px solid transparent;
+  padding:5px;
 
   @include media-breakpoint-up(md) {
-    transition: transform .2s, box-shadow .2s;
+    transition: transform .2s,
+                box-shadow .2s,
+                border .2s;
     &:hover {
       cursor:pointer;
-      transform: scale(1.05, 1.05);
-      z-index: 100;
-      box-shadow: 0 0 30px fade-out(black, .5);
+      border: 1px solid black;
+      transform: scale(0.97, 0.97);
       position: relative;
     }
   }
