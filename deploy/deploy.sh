@@ -1,9 +1,21 @@
 #!/bin/bash
+
+logMinor () {
+    echo ""
+    echo ""
+    echo "     ---  $1"
+    echo ""
+}
+
+logMajor () {
+    echo ""
+    echo ""
+    echo "     ----------     $1     ----------     "
+    echo ""
+}
+
 set -e # Exit with nonzero exit code if anything fails
-echo ""
-echo ""
-echo "  >>> Starting Deploy <<<  "
-echo ""
+logMajor "Starting Deploy Script"
 
 # Save some useful information
 SOURCE_BRANCH="master"
@@ -12,6 +24,7 @@ COMMIT_AUTHOR_EMAIL="wgoodall01@gmail.com"
 SHA=`git rev-parse --verify HEAD`
 
 doCompile () {
+    logMajor "Starting Build"
     node $TRAVIS_BUILD_DIR/build.js
 }
 
@@ -20,11 +33,13 @@ cd $TRAVIS_BUILD_DIR
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
-    echo "Skipping deploy; just doing a build."
+    logMinor "Skipping deploy, just building."
     doCompile
     exit 0
 fi
 
+
+logMinor "Start \`ssh-agent\` and decrypt deploy key"
 # Get the decrypted deploy key and add it to SSH
 chmod 600 $TRAVIS_BUILD_DIR/deploy/deploy_key
 eval `ssh-agent -s`
@@ -34,11 +49,15 @@ ssh-add $TRAVIS_BUILD_DIR/deploy/deploy_key
 cd $TRAVIS_BUILD_DIR
 doCompile
 
+logMajor "Starting Deploy"
+
 #Set up git repo
+logMinor "Set up Git repo"
 cd $TRAVIS_BUILD_DIR/out
 git init
 #git remote add orgin $REPO
 
+logMinor "Committing files"
 # Now let's go have some fun with the cloned repo
 cd $TRAVIS_BUILD_DIR/out
 
@@ -61,4 +80,6 @@ git commit -m "Deploy to GitHub Pages on $(date)
 SHA: ${SHA}"
 git config --global push.default simple
 git push --force --set-upstream origin master
+
+logMajor "DONE"
 
