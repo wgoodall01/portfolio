@@ -1,5 +1,6 @@
 ---
 title: Photography
+section: Photography
 layout: page.jade
 construction: false
 styles:
@@ -11,9 +12,9 @@ flickr:
     extras: "url_o, url_c, description"
 ---
 
-.gallery-container.row
-    each photo in flickr_photos.photo
-        .col-sm-6
+.gallery-container
+    .column-container
+        each photo in flickr_photos.photo
             - var photoUrl = "//www.flickr.com/photos/"+ flickr_photos.ownername + "/" + photo.id
             img.picture.img-fluid(src=photo.url_c data-original-size=photo.url_o)
 
