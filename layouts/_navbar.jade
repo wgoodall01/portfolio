@@ -5,6 +5,8 @@ nav.navbar.navbar-light
     ul#navCollapse.collapse.navbar-toggleable-xs
         div.nav.navbar-nav.pull-xs-right
             each navName in ["Projects", "Photography", "Overview"]
-                - var isActive = navName.toLowerCase() == title.toLowerCase();
+                -
+                    var isActive = navName.toLowerCase() == title.toLowerCase()
+                        || (section && navName.toLowerCase() == section.toLowerCase());
                 li.nav-item(class=isActive ? "active" : undefined)
                     a.nav-link(href="/" + navName.toLowerCase())= navName
