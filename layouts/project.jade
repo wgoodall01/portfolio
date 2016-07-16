@@ -10,15 +10,24 @@ body
     .container-fluid
         include _navbar
         h1.github-name.m-t-1
-            span=github_data.name
+            a(href=github_data.html_url, target="_blank" rel="noopener noreferrer")
+                span=github_data.name
+                i.fa.fa-external-link.external-link
             .pull-xs-right
-                a(href=github_data.html_url, target="_blank" rel="noopener noreferrer")
-                    div.btn.btn-primary-outline: i.fa.fa-external-link
-        div.m-b-2
+                - var projArgs = "user=" + github_data.owner.login + "&repo=" + github_data.name
+                iframe(src="https://ghbtns.com/github-btn.html?" + projArgs + "&type=star&count=true"
+                    frameborder="0" scrolling="0" width="120px" height="20px")
+                iframe(src="https://ghbtns.com/github-btn.html?" + projArgs + "&type=fork&count=true"
+                    frameborder="0" scrolling="0" width="120px" height="20px")
+        div.m-b-2.clear-both
             em.text-muted= github_data.description
             span.text-muted.m-l-1.m-r-1= "–"
             a(href=github_data.homepage, target="_blank" rel="noopener noreferrer")= github_data.homepage
-        .m.t-2.m-b-2!= contents
+
+        h4 Description
+        .card.m-b-2: .card-block
+            .m.t-2.m-b-2!= contents
+
         h4 Project Readme
         .card: .card-block
             .markdown-body!= github_readme
