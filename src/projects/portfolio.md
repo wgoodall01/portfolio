@@ -1,5 +1,6 @@
 ---
 title: Portfolio
+section: Projects
 layout: project.jade
 construction: true
 
