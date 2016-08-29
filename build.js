@@ -6,6 +6,7 @@
    ██║     ╚██████╔╝██║  ██║   ██║   ██║     ╚██████╔╝███████╗██║╚██████╔╝
    ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝ ╚══════╝╚═╝ ╚═════╝  */
 
+
 //     ------------------------------   Dependencies         ------------------------------
 
 // Metalsmith & plugins
@@ -20,6 +21,9 @@ var markdown     = require("metalsmith-markdown");
 var sass         = require("metalsmith-sass");
 var autoprefixer = require("metalsmith-autoprefixer");
 
+// Other stuff
+var dotenv       = require("dotenv");
+
 // Local libs
 var construction = require("./lib/construction");
 var flickr       = require('./lib/flickr');
@@ -27,6 +31,11 @@ var github       = require("./lib/github");
 var indexer      = require("./lib/indexer");
 
 //     ------------------------------   Configuration         ------------------------------
+
+// Get config from dotenv
+dotenv.config({silent: true}); 
+
+// Structure the config
 var cfg = {
     flickr:{
         apiKey: process.env.FLICKR_API_KEY,

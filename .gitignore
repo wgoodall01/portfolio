@@ -3,6 +3,7 @@ deploy/deploy_key
 
 # Local env vars
 env.sh
+.env
 
 #Flickr data
 data/
