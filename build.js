@@ -7,20 +7,24 @@
    ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝ ╚══════╝╚═╝ ╚═════╝  */
 
 //     ------------------------------   Dependencies         ------------------------------
-var Metalsmith = require("metalsmith");
-var sass = require("metalsmith-sass");
-var markdown = require("metalsmith-markdown");
-var layouts = require("metalsmith-layouts");
-var jade = require("metalsmith-jade");
+
+// Metalsmith & plugins
+var Metalsmith   = require("metalsmith");
+var cleanUrls    = require("metalsmith-clean-urls");
+var cssMinifier  = require("metalsmith-clean-css");
 var htmlMinifier = require("metalsmith-html-minifier");
-var cssMinifier = require("metalsmith-clean-css");
-var jsMinifier = require("metalsmith-uglify");
-var cleanUrls = require("metalsmith-clean-urls");
-var construction = require("./lib/construction");
+var jade         = require("metalsmith-jade");
+var jsMinifier   = require("metalsmith-uglify");
+var layouts      = require("metalsmith-layouts");
+var markdown     = require("metalsmith-markdown");
+var sass         = require("metalsmith-sass");
 var autoprefixer = require("metalsmith-autoprefixer");
-var flickr = require('./lib/flickr');
-var github = require("./lib/github");
-var indexer = require("./lib/indexer");
+
+// Local libs
+var construction = require("./lib/construction");
+var flickr       = require('./lib/flickr');
+var github       = require("./lib/github");
+var indexer      = require("./lib/indexer");
 
 //     ------------------------------   Configuration         ------------------------------
 var cfg = {
