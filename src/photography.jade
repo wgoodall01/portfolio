@@ -9,14 +9,15 @@ scripts:
 - "/js/photography.js"
 flickr:
     set_id: "72157667632529635"
-    extras: "url_o, url_c, description"
+    extras: "url_o, url_c, description, o_dims"
 ---
 
 .gallery-container
     .column-container
         each photo in flickr_photos.photo
             - var photoUrl = "//www.flickr.com/photos/"+ flickr_photos.ownername + "/" + photo.id
-            img.picture.img-fluid(src=photo.url_c data-original-size=photo.url_o)
+            img.picture.img-fluid(src=photo.url_c data-original-size=photo.url_o
+                                     width=photo.width_o height=photo.height_o)
 
 
 .lightbox-container(style="display:none;")
