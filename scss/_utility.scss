@@ -7,11 +7,15 @@
 }
 
 .block-xs{
-  @include media-breakpoint-down(xs){
+  @include media-breakpoint-down(xs) {
     display:block;
   }
 }
 
 .clear-both{
   clear:both;
+}
+
+.clear-link-color{
+  color: $body-color;
 }
