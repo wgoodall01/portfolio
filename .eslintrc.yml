@@ -1,0 +1,26 @@
+parserOptions: 
+    ecmaVersion: 6
+    sourceType: module
+
+extends: defaults
+
+env:
+    node: true
+    es6: true
+    jquery: true
+    browser: true
+    
+rules:
+    quotes:
+        - error
+        - double
+        - avoidEscape: true
+          allowTemplateLiterals: true
+    semi:
+        - error
+        - always
+    no-unreachable: error
+    spaced-comment:
+        - error
+        - always
+    no-console: off

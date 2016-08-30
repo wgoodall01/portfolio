@@ -1,0 +1,6 @@
+.not-link{
+  &:hover{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+}

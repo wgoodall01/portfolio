@@ -2,7 +2,12 @@
 title: Projects
 section: Projects
 layout: page.jade
-construction: true
+indexDir: "projects/"
+styles:
+- "/css/project-index.css"
 ---
 
-h1 This is a test
+each project in index_data
+    a(href= "/" + project.url).card.card-block.m-t-2.not-link
+        .h2.block-xs= project.github_data.name
+        span.text-muted.m-l-1= project.github_data.description
