@@ -15,12 +15,14 @@ body
                 i.fa.fa-external-link.external-link
         div.m-b-2
             em.text-muted= github_data.description
-            span.text-muted.m-l-1.m-r-1= "–"
+            if github_data.description && github_data.homepage
+                span.text-muted.m-l-1.m-r-1= "–"
             a(href=github_data.homepage, target="_blank" rel="noopener noreferrer")= github_data.homepage
 
-        h4 Description
-        .card.m-b-2: .card-block
-            .m.t-2.m-b-2!= contents
+        if enableDescription
+            h4 Description
+            .card.m-b-2: .card-block
+                .m.t-2.m-b-2!= contents
 
         h4 Project Readme
         .card: .card-block
