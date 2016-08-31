@@ -1,16 +1,20 @@
 @import "_variables.scss";
 @import "mixins/_breakpoints";
 
-.cover-img{
-  background: url("/res/cover-sm.jpg") no-repeat center center fixed;
-  background-color: #2c2c2c;
-  background-size:cover;
-  height:100%;
+html{
+  overflow:hidden;
+  position:fixed;
   width:100%;
-  margin:0;
-  z-index:-10;
-  object-fit:cover;
-  position:absolute;
+  height:100%;
+}
+
+.cover-vid{
+  height: 100%;
+  width: 100%;
+  // margin:0;
+  z-index: -10;
+  object-fit: cover;
+  position: absolute;
 }
 
 .links-container{
@@ -21,8 +25,8 @@
   flex-direction: column;
   justify-content: space-around;
 
-  @include media-breakpoint-down(sm){
-    margin-left:20px;
+  @include media-breakpoint-down(xs) {
+    margin: 0 auto;
   }
 }
 
@@ -52,6 +56,7 @@
   background-color:fade-out(black, 0.7);
   height:100%;
   width:100%;
+  position: fixed;
   color:white;
 }
 
@@ -59,8 +64,12 @@
   font-size:80px;
   font-family:"Roboto Slab", Arial, sans-serif;
 
-  @include media-breakpoint-up(sm){
+  @include media-breakpoint-up(xs) {
     text-align:right;
+  }
+
+  @include media-breakpoint-down(xs) {
+    text-align:center;
   }
 
   font-weight:600;
