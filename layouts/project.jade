@@ -24,9 +24,10 @@ body
             .card.m-b-2: .card-block
                 .m.t-2.m-b-2!= contents
 
-        h4 Project Readme
-        .card: .card-block
-            .markdown-body!= github_readme
+        if has_readme
+            h4 Project Readme
+            .card: .card-block
+                .markdown-body!= github_readme
 
 
 
