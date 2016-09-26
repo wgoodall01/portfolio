@@ -106,16 +106,7 @@ if(cfg.dev){
     var watch = require("metalsmith-watch");
     m.use(watch({
         paths:{
-            // Styles
-            "scss/**": "${source}/**/*.scss", // sass mixins rebuild all styles
-            "${source}/css/**": true, // Stylesheets rebuild themselves
-
-            // Pages
-            "layouts/**/*.jade": "${source}/**/*", // Layouts rebuild all templates
-            "${source}/**/{*.md,*.jade,*.html}": true, // Pages rebuild themselves
-
-            // Other stuff
-            "${source}/**/*": true // resources rebuild themselves
+            "${source}/**/*.*": "**/*.*" // Everything rebuilds everything
         }
     }));
 }
