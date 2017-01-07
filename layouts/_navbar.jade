@@ -1,12 +1,22 @@
-nav.navbar.navbar-light
-    a.navbar-brand(href="/") William Goodall
-    button.navbar-toggler.hidden-sm-up.pull-xs-right(type="button" data-toggle="collapse" data-target="#navCollapse")
-        i.fa.fa-bars
-    ul#navCollapse.collapse.navbar-toggleable-xs.m-b-0
-        div.nav.navbar-nav.pull-xs-right
-            each navName in ["Projects", "Photography", "Overview"]
-                -
-                    var isActive = navName.toLowerCase() == title.toLowerCase()
-                        || (section && navName.toLowerCase() == section.toLowerCase());
-                li.nav-item(class=isActive ? "active" : undefined)
-                    a.nav-link(href="/" + navName.toLowerCase())= navName
+//nav.navbar.navbar-light.navbar-toggleable-md
+	a.navbar-brand(href="/") William Goodall
+	.navbar-nav.row.justify-content-end
+		each navName in ["Projects", "Photography", "Overview"]
+			-
+				var isActive = navName.toLowerCase() == title.toLowerCase()
+					|| (section && navName.toLowerCase() == section.toLowerCase());
+			.nav-item(class=isActive ? "active" : undefined)
+				a.nav-link(href="/" + navName.toLowerCase())= navName
+
+
+nav.navbar.navbar-toggleable-sm.navbar-light
+	button.navbar-toggler.navbar-toggler-right(type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation")
+		span.navbar-toggler-icon
+	a.navbar-brand(href="/") William Goodall
+	.collapse.navbar-collapse.justify-content-end#navbar-links: .navbar-nav
+		each navName in ["Projects", "Photography", /*"Overview"*/]
+			-
+				var isActive = navName.toLowerCase() == title.toLowerCase()
+					|| (section && navName.toLowerCase() == section.toLowerCase());
+			.nav-item(class=isActive ? "active" : undefined)
+				a.nav-link(href="/" + navName.toLowerCase())= navName

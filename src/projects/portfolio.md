@@ -3,6 +3,8 @@ title: Portfolio
 section: Projects
 layout: project.jade
 
+index: 10
+
 github:
     owner: "wgoodall01"
     repo: "portfolio"

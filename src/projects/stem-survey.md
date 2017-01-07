@@ -3,6 +3,8 @@ title: Stem-survey
 section: Projects
 layout: project.jade
 
+index: 10
+
 github:
     owner: "wgoodall01"
     repo: "stem-survey"

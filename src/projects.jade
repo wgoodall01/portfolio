@@ -1,13 +1,13 @@
 ---
 title: Projects
 section: Projects
-layout: page.jade
+layout: "page.jade"
 indexDir: "projects/"
 styles:
 - "/css/project-index.css"
 ---
 
-div.m-t-1
+div.m-t-1 &nbsp
 each project in index_data
     a(href= "/" + project.url).m-y-2
         .h3.block-xs= project.github_data.name

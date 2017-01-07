@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/wgoodall01/wgoodall01.github.io#readme",
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.2",
+    "bootstrap": "4.0.0-alpha.6",
     "dotenv": "^2.0.0",
     "eslint": "^3.4.0",
     "eslint-config-defaults": "^9.0.0",

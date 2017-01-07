@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /*                                                      William Goodall's
    ██████╗  ██████╗ ██████╗ ████████╗███████╗ ██████╗ ██╗     ██╗ ██████╗ 
    ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██╔═══██╗██║     ██║██╔═══██╗
@@ -107,7 +106,9 @@ if(cfg.dev){
     var watch = require("metalsmith-watch");
     m.use(watch({
         paths:{
-            "${source}/**/*.*": "**/*.*" // Everything rebuilds everything
+            "${source}/**/*.*": "**/*.*", // Everything rebuilds everything
+			"layouts/**/*" : "**/*.*",
+			"lib/**/*": "**/*.*"
         }
     }));
 }
