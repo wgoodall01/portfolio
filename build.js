@@ -118,7 +118,8 @@ if(cfg.dev){
 
 // Logging
 m.use(function(files, metalsmith, next){
-    for(var filename in files){
+    console.log();
+	for(var filename in files){
         console.log(`${filename} <- ${files[filename].layout || "[no layout]"} <- ${files[filename].title || "[untitled]" }`);
     }
     next();
