@@ -27,6 +27,7 @@ html{
 
   @include media-breakpoint-down(xs) {
     margin: 0 auto;
+	width:300px;
   }
 }
 
@@ -40,6 +41,7 @@ html{
   text-transform:uppercase;
   letter-spacing:3px;
   color:white;
+  margin-left:10px;
 
   outline-offset:-2px;
   outline:1px solid fade-out(white, 1);
