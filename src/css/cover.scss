@@ -13,34 +13,6 @@
   align-items: center;
 }
 
-/*
-.slant {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  left: 0;
-}
-
-.slant-edge {
-  height: 50px;
-  width: 100%;
-  margin: 0;
-  background-color: var(--color-primary);
-  position: relative;
-  border: none;
-  clip-path: polygon(0 0, 0% 100%, 100% 100%);
-}
-
-.slant-body {
-  width: 100%;
-  border: none;
-  //padding: 10px;
-  padding-bottom: 10vh;
-  margin: 0;
-  background-color: var(--color-primary);
-}
-*/
-
 .cover-vid {
   height: 100%;
   width: 100%;
@@ -75,6 +47,7 @@
   margin: 0 20px;
   padding: 10px;
   font-family: 'Oswald', Arial, sans-serif;
+  font-size: 18px;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 3px;

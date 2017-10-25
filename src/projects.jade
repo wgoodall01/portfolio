@@ -1,19 +1,30 @@
 ---
 title: Projects
 section: Projects
-layout: "page.jade"
 indexDir: "projects/"
-styles:
-- "/css/project-index.css"
 ---
 
-div.m-t-1 &nbsp
-each project in index_data
-    a(href= "/" + project.url).m-y-2
-        .h3.block-xs= project.github_data.name
-    .text-muted= project.github_data.description
-    hr
+extends ../layouts/page
 
-a.text-muted(href="https://github.com/wgoodall01?tab=repositories")
-        span="More stuff on my GitHub  "
-        i.fa.fa-external-link.external-link
+append styles
+	link(rel="stylesheet", href="/css/project-index.css")
+	link(rel="stylesheet", href="/css/slant.css")
+
+block body
+	.slant-body: .container
+		.navbar-white
+			include ../layouts/_navbar
+		h1.slant-heading Projects
+		p.
+			This is some copy about projects.
+	.slant-edge
+
+	.container
+		.projects-container
+			each project in index_data
+				.project-card
+					a.project-card-title(href= "/" + project.url)= project.github_data.name
+					div= project.github_data.description
+
+		a.text-muted(href="https://github.com/wgoodall01")
+			span="More stuff on my GitHub  "
