@@ -18,3 +18,4 @@ out
 
 # Annoying OS stuff
 .DS_Store
+.vscode
