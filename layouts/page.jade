@@ -1,9 +1,5 @@
-doctype html
-include _head
+extends base
 
-body
-    .container-fluid
-        include _navbar
-        .main!=contents
+prepend body
+	h3 This is a title!
 
-    include _scripts

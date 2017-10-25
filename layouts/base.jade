@@ -1,7 +1,16 @@
 doctype html
-include _head
+
+head
+	title= title + " | William Goodall"
+	meta(name="viewport", content="width=device-width, initial-scale=1")
+
+	block styles
+		link(rel="stylesheet", href="/css/main.css")
+		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Oswald:300|Roboto+Slab:400,700")
 
 body
-    !=contents
+	block body
+		!= contents
 
-    include _scripts
+	block scripts
+		script(src="https://code.jquery.com/jquery-2.2.4.min.js")

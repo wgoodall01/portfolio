@@ -1,78 +1,152 @@
-@import "_variables.scss";
-@import "mixins/_breakpoints";
-
-html{
-  overflow:hidden;
-  position:fixed;
-  width:100%;
-  height:100%;
-}
-
-.cover-vid{
-  height: 100%;
-  width: 100%;
-  // margin:0;
-  z-index: -10;
-  object-fit: cover;
+.cover {
   position: absolute;
-}
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 
-.links-container{
-  height:150px;
-  align-self:center;
+  background-color: rgba(0, 0, 0, 0.3);
 
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
-  @include media-breakpoint-down(xs) {
-    margin: 0 auto;
-	width:300px;
+/*
+.slant {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+
+.slant-edge {
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  background-color: var(--color-primary);
+  position: relative;
+  border: none;
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
+.slant-body {
+  width: 100%;
+  border: none;
+  //padding: 10px;
+  padding-bottom: 10vh;
+  margin: 0;
+  background-color: var(--color-primary);
+}
+*/
+
+.cover-vid {
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  object-fit: cover;
+  object-position: 33% 33%;
+  position: fixed;
+}
+
+.name {
+  font-size: 80px;
+  font-family: 'Roboto Slab', Arial, sans-serif;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 75px;
+
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.links-container {
+  margin: 0 -20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.links-container a {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  margin: 0 20px;
+  padding: 10px;
+  font-family: 'Oswald', Arial, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 3px;
+  color: white;
+
+  outline-offset: -2px;
+  outline: 1px solid fade-out(white, 1);
+  transition: outline 0.1s, outline-offset 0.1s;
+  &:hover {
+    cursor: pointer;
+    outline-offset: 5px;
+    outline: 1px solid white;
+    text-decoration: none;
   }
 }
 
-.link{
+/*
+
+.links-container {
+  height: 150px;
+  align-self: center;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.link {
   flex: 0 1 auto;
   align-self: auto;
 }
 
-.link a{
-  font-family: "Oswald", Arial, sans-serif;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  color:white;
-  margin-left:10px;
+.link a {
+  font-family: 'Oswald', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: white;
+  margin-left: 10px;
 
-  outline-offset:-2px;
-  outline:1px solid fade-out(white, 1);
-  transition:outline .1s, outline-offset .1s;
-  &:hover{
-    cursor:pointer;
-    outline-offset:5px;
-    outline:1px solid white;
-    text-decoration:none;
+  outline-offset: -2px;
+  outline: 1px solid fade-out(white, 1);
+  transition: outline 0.1s, outline-offset 0.1s;
+  &:hover {
+    cursor: pointer;
+    outline-offset: 5px;
+    outline: 1px solid white;
+    text-decoration: none;
   }
 }
 
-.dim{
-  background-color:fade-out(black, 0.7);
-  height:100%;
-  width:100%;
+.dim {
+  background-color: fade-out(black, 0.7);
+  height: 100%;
+  width: 100%;
   position: fixed;
-  color:white;
+  color: white;
 }
 
-.name{
-  font-size:80px;
-  font-family:"Roboto Slab", Arial, sans-serif;
+.name {
+  font-size: 80px;
+  font-family: 'Roboto Slab', Arial, sans-serif;
 
-  @include media-breakpoint-up(xs) {
-    text-align:right;
+  @media screen and (min-width: 400px) {
+    text-align: right;
   }
 
-  @include media-breakpoint-down(xs) {
-    text-align:center;
+  @media screen and (max-width: 400px) {
+    text-align: center;
   }
 
-  font-weight:600;
+  font-weight: 600;
 }
+
+*/

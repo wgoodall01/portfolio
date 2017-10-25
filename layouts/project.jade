@@ -1,14 +1,13 @@
 doctype html
 
-- var styles = styles || [];
-- styles.push("/css/project.css");
-- styles.push("/css/github-markdown.css");
+extends base
 
-include _head
+append styles
+	link(rel="stylesheet", href="/css/project.css")
+	link(rel="stylesheet", href="/css/github-markdown.css")
 
-body
+append body
 	.container-fluid
-		include _navbar
 		h1.github-name.m-t-1
 			a(href=github_data.html_url, target="_blank" rel="noopener noreferrer").clear-link-color
 				span=github_data.name
@@ -31,8 +30,3 @@ body
 			.card: .card-block
 				.markdown-body!= github_readme
 
-
-
-
-
-	include _scripts
