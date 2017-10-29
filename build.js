@@ -99,7 +99,7 @@ m.use(autoprefixer());
 // Minify all HTML, CSS, JS
 m.use(htmlMinifier());
 m.use(cssMinifier());
-m.use(jsMinifier());
+m.use(jsMinifier({es: true}));
 
 // Clean all HTML endpoints
 m.use(cleanUrls());

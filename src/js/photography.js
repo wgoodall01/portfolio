@@ -1,27 +1,25 @@
-$(document).ready(function(){
+// ---- Lightbox ----
 
-    var lightboxContainer = $(".lightbox-container");
-    var lightboxPhoto = $(".lightbox-photo");
-    var self;
+const hideEl = el => (el.style.display = 'none');
+const showEl = el => (el.style.display = null);
 
-    $(".picture").click(function(e){
-        if(!self){
-            self = $(this);
-            lightboxPhoto.removeAttr("src").attr("src", self.attr("data-original-size"));
-            lightboxContainer.fadeIn(); // even though it's async, this sets display:block
-            self.animate({"opacity": 0}); // doesn't set display:none
+document.addEventListener('DOMContentLoaded', () => {
+  const lightboxContainer = document.querySelector('.lightbox-container');
+  const lightboxPhoto = document.querySelector('.lightbox-photo');
+  let current;
 
-            $(document).one("click", function(){
-                lightboxContainer.fadeOut();
-                self.animate({"opacity": 1});
-                self = null;
-            });
+  // Dismiss current with any click on lightbox
+  lightboxContainer.addEventListener('click', () => {
+    hideEl(lightboxContainer);
+  });
 
-            return false;
-        }else{
-            return true;
-        }
+  // On any photo click, set photo and show lightbox
+  document.querySelectorAll('.picture').forEach(el => {
+    const photoUrl = el.dataset.originalSize;
+    el.addEventListener('click', () => {
+      console.log('click', el);
+      lightboxPhoto.setAttribute('src', photoUrl);
+      showEl(lightboxContainer);
     });
-
-
+  });
 });
