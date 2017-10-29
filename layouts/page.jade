@@ -1,5 +1,20 @@
 extends base
 
-prepend body
-	h3 This is a title!
+append styles
+	link(rel="stylesheet", href="/css/slant.css")
+
+block body
+	.slant-body: .container
+		.navbar-white
+			include _navbar
+
+		h1.slant-heading
+			block title
+		div
+			block header
+	.slant-edge
+	
+	.container
+		block contents
+			div!= contents
 

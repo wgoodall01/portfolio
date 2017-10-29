@@ -1,6 +1,8 @@
 .project-card {
   flex-grow: 1;
   flex-shrink: 0;
+  color: var(--color-dark);
+  text-decoration: none;
   max-width: 100%;
   margin: 10px;
   border-radius: 2px;
@@ -21,12 +23,13 @@
   cursor: pointer;
 }
 
-.project-card > * {
-  margin: 8px;
+.github-link {
+  display: block;
+  margin-top: 20px;
 }
 
-.project-card:last-child {
-  flex-grow: 0;
+.project-card > * {
+  margin: 8px;
 }
 
 .project-card-title {
