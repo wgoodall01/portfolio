@@ -1,9 +1,8 @@
-// ---- Lightbox ----
-
-const hideEl = el => (el.style.display = 'none');
-const showEl = el => (el.style.display = null);
-
 document.addEventListener('DOMContentLoaded', () => {
+  // ---- Lightbox ----
+  const hideEl = el => (el.style.display = 'none');
+  const showEl = el => (el.style.display = null);
+
   const lightboxContainer = document.querySelector('.lightbox-container');
   const lightboxPhoto = document.querySelector('.lightbox-photo');
   let current;
@@ -17,9 +16,26 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.picture').forEach(el => {
     const photoUrl = el.dataset.originalSize;
     el.addEventListener('click', () => {
-      console.log('click', el);
       lightboxPhoto.setAttribute('src', photoUrl);
       showEl(lightboxContainer);
     });
   });
 });
+
+document.onreadystatechange = () => {
+  if (document.readyState == 'complete') {
+    // ---- Masonry layout ----
+    const br = Bricks({
+      container: '.gallery',
+      packed: 'data-packed',
+      sizes: [{columns: 1, gutter: 20}, {mq: '400px', columns: 2, gutter: 10}]
+    });
+
+    br
+      .on('pack', () => console.log('Packed'))
+      .on('update', () => console.log('update'))
+      .on('resize', size => console.log('resize to', size));
+
+    br.resize(true).pack(); // Run the layout.
+  }
+};
