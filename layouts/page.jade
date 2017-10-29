@@ -1,9 +1,20 @@
-doctype html
-include _head
+extends base
 
-body
-    .container-fluid
-        include _navbar
-        .main!=contents
+append styles
+	link(rel="stylesheet", href="/css/slant.css")
 
-    include _scripts
+block body
+	.slant-body: .container
+		.navbar-white
+			include _navbar
+
+		h1.slant-heading
+			block title
+		div
+			block header
+	.slant-edge
+	
+	.container
+		block contents
+			div!= contents
+

@@ -1,25 +1,22 @@
 ---
 title: Home
-layout: base.jade
-styles:
-    - /css/cover.css
 ---
 
-video.cover-vid(src="/res/cover.mp4" autoplay loop muted)
+extends ../layouts/base
 
-.dim
-    .row.center-v
-        .name-container.col-sm-7.col-xs-12
-            h4.name William
-            h4.name Goodall
-        .links-container.col-sm-5
-            .link
-                i.fa.fa-chevron-right.m-r-1
-                a(href="projects") Projects
-            .link
-                i.fa.fa-chevron-right.m-r-1
-                a(href="photography") Photography
-            // .link
-                i.fa.fa-chevron-right.m-r-1
-                a(href="overview") Overview
+append styles
+	link(rel="stylesheet", href="/css/cover.css")
+
+block body
+	video.cover-vid(src="/res/cover.mp4" autoplay loop muted)
+
+	.cover: .center-container
+		.name-container
+			.name William
+			.name Goodall
+		.links-container
+			a(href="/projects") Projects
+			a(href="/photography") Photos
+
+
 

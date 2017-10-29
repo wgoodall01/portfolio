@@ -1,38 +1,28 @@
 doctype html
 
-- var styles = styles || [];
-- styles.push("/css/project.css");
-- styles.push("/css/github-markdown.css");
+extends page
 
-include _head
+append styles
+	link(rel="stylesheet", href="/css/project.css")
+	link(rel="stylesheet", href="/css/github-markdown.css")
 
-body
-	.container-fluid
-		include _navbar
-		h1.github-name.m-t-1
-			a(href=github_data.html_url, target="_blank" rel="noopener noreferrer").clear-link-color
-				span=github_data.name
-				i.fa.fa-external-link.external-link
-		div.m-b-2
-			em.text-muted= github_data.description
-			if github_data.description && github_data.homepage
-				span.text-muted.m-l-1.m-r-1= "–"
-			a(href=github_data.homepage, target="_blank" rel="noopener noreferrer")= github_data.homepage
+block title
+	a(href=github_data.html_url, target="_blank" rel="noopener")= github_data.name
 
-		if enableDescription
-			.m-t-2 &nbsp
-			h4 Description
-			.card.m-b-2: .card-block
-				.m.t-2.m-b-2!= contents
+block header
+	p=github_data.description
 
-		if hasReadme
-			.m-t-2 &nbsp
-			h4 Project Readme
-			.card: .card-block
-				.markdown-body!= github_readme
+	if github_data.homepage
+		p: a(href=github_data.homepage, target="_blank", rel="noopener")= github_data.homepage
 
+block contents
+	if enableDescription
+		section
+			h2.project-heading Description
+			div!= contents
 
+	if hasReadme
+		section
+			h2.project-heading Project Readme
+			.markdown-body!= github_readme
 
-
-
-	include _scripts

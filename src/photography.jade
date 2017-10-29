@@ -1,25 +1,39 @@
 ---
 title: Photography
-section: Photography
-layout: page.jade
-construction: false
-styles:
-- "/css/photography.css"
-scripts:
-- "/js/photography.js"
 flickr:
     set_id: "72157667632529635"
-    extras: "url_o, url_c, description, o_dims"
+    extras: "url_o, url_m, url_n, description, o_dims"
 ---
 
-.gallery-container
-    .column-container
-        each photo in flickr_photos.photo
-            - var photoUrl = "//www.flickr.com/photos/"+ flickr_photos.ownername + "/" + photo.id
-            img.picture.img-fluid(src=photo.url_c data-original-size=photo.url_o
-                                     width=photo.width_o height=photo.height_o)
+extends ../layouts/page
+
+append scripts
+	script(src="https://unpkg.com/bricks.js@1.8.0/dist/bricks.js")
+	script(src="/js/photography.js")
+
+append styles
+	link(rel="stylesheet", href="/css/photography.css")
 
 
-.lightbox-container(style="display:none;")
-    .lightbox-exit!= "&times;"
-    img.lightbox-photo
+block title
+	span Photos
+
+block header
+	p I do photography as a hobby - whenever I take a go somewhere or do something fun, my camera comes with me. I find it really interesting to discover all the different ways that you can capture a particular moment.
+
+block contents
+	.gallery
+		each photo in flickr_photos.photo.reverse()
+			- var photoUrl = "//www.flickr.com/photos/"+ flickr_photos.ownername + "/" + photo.id
+			- const [original, bigThumb, smallThumb] = [photo.url_o, photo.url_m, photo.url_n];
+			img.picture(
+			   src=smallThumb
+				data-original-size=original
+				width=photo.width_o 
+				height=photo.height_o
+			)
+
+
+	.lightbox-container(style="display:none;")
+		.lightbox-exit!= "&times;"
+		img.lightbox-photo

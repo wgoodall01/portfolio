@@ -1,19 +1,26 @@
 ---
 title: Projects
 section: Projects
-layout: "page.jade"
 indexDir: "projects/"
-styles:
-- "/css/project-index.css"
 ---
 
-div.m-t-1 &nbsp
-each project in index_data
-    a(href= "/" + project.url).m-y-2
-        .h3.block-xs= project.github_data.name
-    .text-muted= project.github_data.description
-    hr
+extends ../layouts/page
 
-a.text-muted(href="https://github.com/wgoodall01?tab=repositories")
-        span="More stuff on my GitHub  "
-        i.fa.fa-external-link.external-link
+append styles
+	link(rel="stylesheet", href="/css/project-index.css")
+
+block title
+	span Projects
+
+block header
+	span I spend a lot of my spare time working on side projects. I find that the best way to learn new things is to try to implement them, so here are some ideas I have kicking around. 
+
+block contents
+	.projects-container
+		each project in index_data
+			a.project-card(href= "/" + project.url)
+				.project-card-title= project.github_data.name
+				p= project.github_data.description
+
+	a.github-link(href="https://github.com/wgoodall01")
+		span="More stuff on my GitHub"

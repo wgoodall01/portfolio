@@ -1,27 +1,41 @@
-$(document).ready(function(){
+document.addEventListener('DOMContentLoaded', () => {
+  // ---- Lightbox ----
+  const hideEl = el => (el.style.display = 'none');
+  const showEl = el => (el.style.display = null);
 
-    var lightboxContainer = $(".lightbox-container");
-    var lightboxPhoto = $(".lightbox-photo");
-    var self;
+  const lightboxContainer = document.querySelector('.lightbox-container');
+  const lightboxPhoto = document.querySelector('.lightbox-photo');
+  let current;
 
-    $(".picture").click(function(e){
-        if(!self){
-            self = $(this);
-            lightboxPhoto.removeAttr("src").attr("src", self.attr("data-original-size"));
-            lightboxContainer.fadeIn(); // even though it's async, this sets display:block
-            self.animate({"opacity": 0}); // doesn't set display:none
+  // Dismiss current with any click on lightbox
+  lightboxContainer.addEventListener('click', () => {
+    hideEl(lightboxContainer);
+  });
 
-            $(document).one("click", function(){
-                lightboxContainer.fadeOut();
-                self.animate({"opacity": 1});
-                self = null;
-            });
+  // On any photo click, set photo and show lightbox
+  document.querySelectorAll('.picture').forEach(el => {
+    const photoUrl = el.dataset.originalSize;
+    el.addEventListener('click', () => {
+      lightboxPhoto.setAttribute('src', photoUrl);
+      showEl(lightboxContainer);
+    });
+  });
+});
 
-            return false;
-        }else{
-            return true;
-        }
+document.onreadystatechange = () => {
+  if (document.readyState == 'complete') {
+    // ---- Masonry layout ----
+    const br = Bricks({
+      container: '.gallery',
+      packed: 'data-packed',
+      sizes: [{columns: 1, gutter: 20}, {mq: '400px', columns: 2, gutter: 10}]
     });
 
+    br
+      .on('pack', () => console.log('Packed'))
+      .on('update', () => console.log('update'))
+      .on('resize', size => console.log('resize to', size));
 
-});
+    br.resize(true).pack(); // Run the layout.
+  }
+};

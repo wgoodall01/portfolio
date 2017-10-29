@@ -1,0 +1,33 @@
+.slant-edge {
+  margin-top: -1px;
+  position: relative;
+
+  z-index: -2;
+
+  @media screen and (max-width: 400px) {
+    height: 10vw;
+  }
+
+  @media screen and (min-width: 400px) {
+    height: 50px;
+  }
+
+  background-color: var(--color-primary);
+  clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+
+.slant-heading {
+  margin-bottom: 20px;
+}
+
+.slant-body {
+  width: 100%;
+  padding: 10px 0;
+  background-color: var(--color-primary);
+  color: white;
+  font-family: 'Roboto Slab', 'Helvetica Neue', 'Helvetical', Arial, sans-serif;
+}
+
+.slant-body a {
+  color: white;
+}
