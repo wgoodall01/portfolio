@@ -6,7 +6,7 @@ layout: project.jade
 index: 10
 
 github:
-    owner: "wgoodall01"
+    owner: "mka-stem"
     repo: "stem-survey"
 enableDescription: true
 hasReadme: true
