@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const lightboxContainer = document.querySelector('.lightbox-container');
   const lightboxPhoto = document.querySelector('.lightbox-photo');
-  let current;
 
   // Dismiss current with any click on lightbox
   lightboxContainer.addEventListener('click', () => {
