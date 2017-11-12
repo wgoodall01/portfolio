@@ -35,6 +35,8 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   }
   cursor: pointer;
+
+  padding: 16px;
 }
 
 .github-link {
@@ -42,13 +44,14 @@
   margin-top: 20px;
 }
 
-.project-card > * {
-  margin: 8px;
+.project-card p {
+  margin: 0;
 }
 
 .project-card-title {
+  margin-bottom: 10px;
   display: block;
-  color: var(--color-dark);
+  color: black;
   text-decoration: none;
   margin-bottom: 5px;
   font-size: 20px;

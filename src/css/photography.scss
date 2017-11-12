@@ -21,13 +21,7 @@
 
 .picture[data-packed] {
   opacity: 1;
-
-  transition: 0.2s;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.05) rotate(-0.5deg);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  }
+  cursor: zoom-in;
 }
 
 //Lightbox styles
