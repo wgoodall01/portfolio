@@ -3,7 +3,7 @@ title: Verify
 section: Projects
 layout: project.jade
 
-index: 100
+index: 60
 
 github:
     owner: "wgoodall01"

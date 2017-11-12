@@ -2,7 +2,7 @@
 title: Auto
 section: Projects
 layout: project.jade
-
+hidden: true
 index: 5
 
 github:

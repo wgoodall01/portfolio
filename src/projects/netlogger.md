@@ -2,7 +2,7 @@
 title: Netlogger
 section: Projects
 layout: project.jade
-
+hidden: true
 github:
     owner: "wgoodall01"
     repo: "netlogger"

@@ -3,7 +3,7 @@ title: Dotfiles
 section: Projects
 layout: project.jade
 
-index: 10
+index: 5
 
 github:
     owner: "wgoodall01"

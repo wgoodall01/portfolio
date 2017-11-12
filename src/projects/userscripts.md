@@ -1,13 +1,13 @@
 ---
-title: Sensitive Question
+title: Userscripts
 section: Projects
 layout: project.jade
 
-index: 30
+index: 20
 
 github:
     owner: "wgoodall01"
-    repo: "sensitive-question"
+    repo: "userscripts"
 enableDescription: false
 hasReadme: true
 ---

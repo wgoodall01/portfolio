@@ -3,7 +3,7 @@ title: Place
 section: Projects
 layout: project.jade
 
-index: 50
+index: 0
 
 github:
     owner: "wgoodall01"
