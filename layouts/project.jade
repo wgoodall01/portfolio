@@ -7,13 +7,17 @@ append styles
 	link(rel="stylesheet", href="/css/github-markdown.css")
 
 block title
-	a(href=github_data.html_url, target="_blank" rel="noopener")= github_data.name
+	a.project-title(href=github_data.html_url, target="_blank" rel="noopener")= github_data.name
 
 block header
 	p=github_data.description
 
-	if github_data.homepage
-		p: a(href=github_data.homepage, target="_blank", rel="noopener")= github_data.homepage
+	p
+		a(href=github_data.html_url, target="_blank" rel="noopener") GitHub
+
+		if github_data.homepage
+			span=" - "
+			a(href=github_data.homepage, target="_blank", rel="noopener")= github_data.homepage
 
 block contents
 	if enableDescription
