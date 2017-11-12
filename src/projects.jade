@@ -14,7 +14,9 @@ block title
 	span Projects
 
 block header
-	span I spend a lot of my spare time working on side projects. I find that the best way to learn new things is to try to implement them, so here are some ideas I have kicking around. 
+	p I spend a lot of my spare time working on side projects. I find that the best way to learn new things is to try to implement them, so here are some ideas I have kicking around. 
+	p
+		a(href="https://github.com/wgoodall01/") My GitHub
 
 block contents
 	.projects-container
@@ -22,6 +24,3 @@ block contents
 			a.project-card(href= "/" + project.url)
 				.project-card-title= project.github_data.name
 				p= project.github_data.description
-
-	a.github-link(href="https://github.com/wgoodall01")
-		span="More stuff on my GitHub"
