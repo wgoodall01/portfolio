@@ -26,7 +26,7 @@ var autoprefixer = require('metalsmith-autoprefixer');
 var dotenv = require('dotenv');
 
 // Local libs
-var construction = require('./lib/construction');
+var hidden = require('./lib/hidden.js');
 var flickr = require('./lib/flickr');
 var github = require('./lib/github');
 var indexer = require('./lib/indexer');
@@ -54,6 +54,10 @@ var m = new Metalsmith(__dirname);
 m.source('./src');
 
 //     ------------------------------   Compilation           ------------------------------
+
+// If a page is hidden don't show it.
+m.use(hidden());
+
 // Add flickr content to `flickr_photos` local
 m.use(flickr(cfg.flickr));
 
@@ -62,9 +66,6 @@ m.use(github(cfg.github));
 
 // Build index pages
 m.use(indexer());
-
-// If a page is under construction && not in dev mode, don't show it
-m.use(construction(cfg.dev));
 
 // Compile all sass files in src to stylesheets in `out`, using
 // partials and other stuff in `src/css/` to help out.
