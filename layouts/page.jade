@@ -12,7 +12,11 @@ block body
 			block title
 		div
 			block header
-	.slant-edge
+	
+	if(slantUnpad)
+		.slant-edge.slant-unpad
+	else
+		.slant-edge
 	
 	.container
 		block contents
