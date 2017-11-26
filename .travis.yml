@@ -3,6 +3,7 @@ node_js: 7
 script: bash ./deploy/deploy.sh
 cache:
   directories:
+    - "node_modules"
     - "$HOME/.yarn-cache"
 
 
