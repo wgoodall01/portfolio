@@ -3,7 +3,7 @@ title: Photography
 slantUnpad: true
 flickr:
   set_id: "72157667632529635"
-  extras: "url_o, url_m, url_n, description, o_dims"
+  extras: "url_o, o_dims"
 ---
 
 extends ../layouts/page
@@ -26,10 +26,9 @@ block contents
 	.gallery
 		each photo in flickr_photos.reverse()
 			- var photoUrl = "//www.flickr.com/photos/"+ flickr_photos.ownername + "/" + photo.id
-			- const [original, bigThumb, smallThumb] = [photo.url_o, photo.url_m, photo.url_n];
 			img.picture(
-			   src=smallThumb
-				data-original-size=original
+			   src=photo.thumb
+				data-original-size=photo.url_o
 				width=photo.width_o 
 				height=photo.height_o
 			)

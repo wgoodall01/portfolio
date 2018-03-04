@@ -27,7 +27,7 @@ document.onreadystatechange = () => {
     const br = Bricks({
       container: '.gallery',
       packed: 'data-packed',
-      sizes: [{columns: 1, gutter: 20}, {mq: '400px', columns: 2, gutter: 10}]
+      sizes: [{columns: 1, gutter: 20}, {mq: '500px', columns: 2, gutter: 10}]
     });
 
     br

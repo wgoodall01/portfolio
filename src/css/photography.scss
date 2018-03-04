@@ -9,7 +9,7 @@
   display: block;
 
   width: 100%;
-  @media screen and(min-width:400px) {
+  @media screen and(min-width:500px) {
     width: calc(50% - 5px);
   }
 
@@ -22,6 +22,12 @@
 .picture[data-packed] {
   opacity: 1;
   cursor: zoom-in;
+  transition: 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.5);
+  }
 }
 
 //Lightbox styles
