@@ -24,7 +24,7 @@ block header
 
 block contents
 	.gallery
-		each photo in flickr_photos.photo.reverse()
+		each photo in flickr_photos.reverse()
 			- var photoUrl = "//www.flickr.com/photos/"+ flickr_photos.ownername + "/" + photo.id
 			- const [original, bigThumb, smallThumb] = [photo.url_o, photo.url_m, photo.url_n];
 			img.picture(
