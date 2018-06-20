@@ -7,7 +7,7 @@ append styles
 	link(rel="stylesheet", href="/css/github-markdown.css")
 
 block title
-	a.project-title(href=github_data.html_url, target="_blank" rel="noopener")= github_data.name
+	a.project-title(href=github_data.html_url, target="_blank" rel="noopener")= title || github_data.name
 
 block header
 	p=github_data.description

@@ -8,6 +8,8 @@ index: 75
 github:
     owner: "MKA-Stem"
     repo: "ayc-galvanize"
+
+description: "Secure message delivery based on key escrow and SMS-based authentication."
 enableDescription: true
 hasReadme: false
 ---
