@@ -25,7 +25,7 @@
     "dotenv": "^2.0.0",
     "eslint": "^4.18.2",
     "eslint-config-defaults": "^9.0.0",
-    "flickr-sdk": "^1.2.2",
+    "flickr-sdk": "^3.0.0",
     "github": "^2.6.0",
     "marked": "^0.3.17",
     "metalsmith": "^2.1.0",
@@ -40,7 +40,7 @@
     "metalsmith-uglify": "^2.0.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
-    "snyk": "^1.117.1"
+    "snyk": "^1.120.0"
   },
   "devDependencies": {
     "express": "^4.14.0",
