@@ -9,7 +9,7 @@
     "clean": "rm -rf out",
     "runDev": "DEV=true node build.js",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "yarn run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,7 @@
     "metalsmith-uglify": "^2.0.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
-    "snyk": "^1.117.1"
+    "snyk": "^1.305.0"
   },
   "devDependencies": {
     "express": "^4.14.0",
