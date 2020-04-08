@@ -31,21 +31,14 @@ export default function Index() {
 
         .center {
           max-width: var(--content-width);
+          min-width: 40rem;
         }
       `}</style>
       <video className="hero" src="/cover.webm" autoPlay loop muted />
 
       <div className="center">
-        <Display overlap="3rem">William Goodall</Display>
+        <Display>William Goodall</Display>
         <Card>
-          <p>
-            Experienced and ethical developer, with a demonstrated history of
-            working in the software industry. Skilled in full-stack web
-            development in JavaScript/TypeScript, Go, and Python; mobile
-            development in React-Native; proficient in Java, Rust, C, and C++.
-            Pursuing a BS in Computer Science from the Georgia Institute of
-            Technology.
-          </p>
           <HBox>
             <Link href="/projects">
               <a>Projects</a>
@@ -54,6 +47,9 @@ export default function Index() {
               <a>Photography</a>
             </Link>
             <a href="/WilliamGoodall.pdf">Resume</a>
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
           </HBox>
         </Card>
       </div>

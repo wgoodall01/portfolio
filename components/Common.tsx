@@ -5,6 +5,7 @@ export interface ContainerProps {
 
 export interface DisplayProps {
   overlap?: string;
+  hang?: string;
   opacity?: number;
 }
 
@@ -12,19 +13,21 @@ export function Display({
   children,
   className,
   overlap = null,
+  hang = null,
   opacity = 0
 }: ContainerProps & DisplayProps) {
   return (
     <h1 className={className}>
       <style jsx>{`
         h1 {
+          display: block;
+          position: relative;
+
           font-size: 4rem;
-          line-height: 8rem;
+
+          padding-top: 2rem;
           color: white;
           background-color: var(--color-primary);
-          margin-left: -8rem;
-          margin-right: 8rem;
-          padding-left: 8rem;
 
           margin-top: 2rem;
         }
@@ -39,8 +42,13 @@ export function Display({
       `}</style>
       <style jsx>{`
         h1 {
-          margin-bottom: ${overlap ? `calc(-1 * ${overlap})` : "1rem"};
-          padding-bottom: ${overlap ? overlap : "0"};
+          margin-left: -${hang || "0"};
+          margin-right: ${hang || "0"};
+          padding-left: ${hang || "1rem"};
+
+          margin-bottom: ${overlap ? `calc(1rem - ${overlap})` : "1rem"};
+          padding-bottom: ${overlap || "2rem"};
+          padding-right: 1rem;
         }
       `}</style>
       {children}
@@ -66,9 +74,9 @@ export function Card({ children, className }: ContainerProps) {
     <div className={className}>
       <style jsx>{`
         div {
-          border-radius: 0.1rem;
+          position: relative;
           padding: 1rem;
-          box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
           background-color: white;
         }
       `}</style>
