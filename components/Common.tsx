@@ -1,6 +1,6 @@
 export interface ContainerProps {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 export interface DisplayProps {
@@ -11,10 +11,7 @@ export interface DisplayProps {
 
 export function Display({
   children,
-  className,
-  overlap = null,
-  hang = null,
-  opacity = 0
+  className
 }: ContainerProps & DisplayProps) {
   return (
     <h1 className={className}>
@@ -25,30 +22,9 @@ export function Display({
 
           font-size: 4rem;
 
-          padding-top: 2rem;
-          color: white;
-          background-color: var(--color-primary);
+          paddding: 2rem 1rem;
 
           margin-top: 2rem;
-        }
-
-        @media screen and (max-width: 52rem) {
-          h1 {
-            margin-right: 0 !important;
-            padding: 0 1rem;
-            padding-left: 9rem;
-          }
-        }
-      `}</style>
-      <style jsx>{`
-        h1 {
-          margin-left: -${hang || "0"};
-          margin-right: ${hang || "0"};
-          padding-left: ${hang || "1rem"};
-
-          margin-bottom: ${overlap ? `calc(1rem - ${overlap})` : "1rem"};
-          padding-bottom: ${overlap || "2rem"};
-          padding-right: 1rem;
         }
       `}</style>
       {children}
