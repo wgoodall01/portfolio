@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export interface ContainerProps {
   children: React.ReactNode;
   className?: string;
@@ -62,21 +64,74 @@ export function Card({ children, className }: ContainerProps) {
   );
 }
 
-export function HBox({ children, className }: ContainerProps) {
+interface HBoxProps {
+  // Separation between elements, in rem.
+  sep?: number;
+}
+
+export function HBox({
+  children,
+  className,
+  sep = 1
+}: ContainerProps & HBoxProps) {
   return (
     <div className={className}>
       <style jsx>{`
         div {
           display: flex;
           flex-direction: row;
-          margin-left: -1rem;
+          flex-wrap: wrap;
+          margin-right: calc(-1 * ${sep}rem);
         }
 
         div > :global(*) {
-          margin-left: 1rem;
+          margin-right: ${sep}rem;
         }
       `}</style>
       {children}
     </div>
+  );
+}
+
+export interface NavProps {
+  // If set, hide the name
+  hideBrand?: boolean;
+}
+
+export function Nav({ hideBrand = false }: NavProps) {
+  return (
+    <nav>
+      <style jsx>{`
+        nav {
+          margin-bottom: 1rem;
+        }
+
+        .brand {
+          margin-right: auto;
+
+          text-decoration: none;
+          font-size: 1.2rem;
+        }
+      `}</style>
+      <HBox>
+        {!hideBrand && (
+          <Link href="/">
+            <a className="brand">William Goodall</a>
+          </Link>
+        )}
+        <HBox>
+          <Link href="/projects">
+            <a>Projects</a>
+          </Link>
+          <Link href="/photography">
+            <a>Photography</a>
+          </Link>
+          <a href="/WilliamGoodall.pdf">Resume</a>
+          <Link href="/contact">
+            <a>Contact</a>
+          </Link>
+        </HBox>
+      </HBox>
+    </nav>
   );
 }
