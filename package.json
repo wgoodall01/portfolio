@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "next dev",
-    "build": "next build && next export"
+    "build": "next build && next export",
+    "serve": "serve out"
   },
   "dependencies": {
     "next": "9.3.4",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
+    "serve": "^11.3.0",
     "typescript": "^3.8.3"
   }
 }
