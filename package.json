@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "rm -rf .next out",
     "start": "next dev",
     "build": "next build && next export",
     "serve": "serve out"
@@ -11,6 +12,7 @@
     "next": "9.3.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-photo-gallery": "^8.0.0",
     "typeface-playfair-display": "^1.1.4",
     "typeface-source-serif-pro": "^1.1.3"
   },
@@ -18,6 +20,7 @@
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
     "serve": "^11.3.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "sharp": "^0.25.2"
   }
 }
