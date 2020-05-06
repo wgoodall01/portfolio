@@ -22,7 +22,7 @@ export function Display({
           display: block;
           position: relative;
 
-          font-size: 4rem;
+          font-size: 3rem;
 
           paddding: 2rem 1rem;
 
