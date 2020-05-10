@@ -25,7 +25,7 @@ export default function HeroVideo({ className }: Props) {
           object-position: center;
         }
       `}</style>
-      <video src="/cover.webm" autoPlay loop muted />
+      <video src="/cover.webm" autoPlay loop muted disablePictureInPicture />
     </div>
   );
 }

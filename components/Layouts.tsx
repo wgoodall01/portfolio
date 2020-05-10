@@ -7,6 +7,8 @@ export interface SideVideoLayoutProps {
   thick?: boolean;
 }
 
+const BREAKPOINT = "60rem";
+
 export function StripeLayout({
   children,
   thick = false
@@ -16,49 +18,87 @@ export function StripeLayout({
       <style jsx>{`
         .container {
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
           height: 100%;
+          width: 100%;
+          display: flex;
+
+          --desktop-thin: 5rem;
+          --desktop-thick: 40vw;
+
+          --mobile-thin: 1rem;
+          --mobile-thick: 30vh;
+        }
+
+        .stripe {
+          display: flex;
+        }
+
+        .content {
+          flex: 1;
 
           display: flex;
-          flex-direction: row;
-          align-items: stretch;
-          justify-content: stretch;
         }
 
         /* responsive mobile breakpoint */
-        @media screen and (max-width: 50rem) {
+        @media screen and (max-width: ${BREAKPOINT}) {
           .container {
             flex-direction: column;
           }
 
           .stripe {
-            flex-basis: 3rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            height: var(--mobile-thin);
+          }
+
+          .content {
+            margin-top: var(--mobile-thin);
           }
 
           .is-thick .stripe {
-            flex-basis: 10rem;
+            height: var(--mobile-thick);
+          }
+
+          .is-thick .content {
+            margin-top: var(--mobile-thick);
           }
         }
 
-        .is-thick .stripe {
-          flex-basis: 40rem;
+        /* responsive desktop breakpoint */
+        @media screen and (min-width: ${BREAKPOINT}) {
+          .container {
+            flex-direction: row;
+          }
+
+          .content {
+            margin-left: var(--desktop-thin);
+          }
+
+          .stripe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: var(--desktop-thin);
+          }
+
+          .is-thick .stripe {
+            width: var(--desktop-thick);
+          }
+
+          .is-thick .content {
+            margin-left: var(--desktop-thick);
+          }
         }
 
-        .stripe {
-          flex-basis: 5rem;
-          flex-grow: 0;
-
-          display: flex;
-        }
-
-        .content {
-          flex-basis: 30rem;
-          flex-shrink: 0;
-          flex-grow: 1;
-
-          display: flex;
+        /* hide the video for print */
+        @media print {
+          .stripe {
+            display: hidden;
+          }
         }
       `}</style>
 
@@ -92,6 +132,12 @@ export function Container({ children, center = false }: ContainerProps) {
 
           padding: 3rem;
           margin-right: auto;
+        }
+
+        @media screen and (max-width: ${BREAKPOINT}) {
+          div {
+            padding: 1rem;
+          }
         }
 
         .is-centered {
