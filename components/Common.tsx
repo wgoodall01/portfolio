@@ -47,12 +47,20 @@ export function Shade({ children, className }: ContainerProps) {
   );
 }
 
-export function Card({ children, className }: ContainerProps) {
+export interface CardProps {
+  pad?: string;
+}
+
+export function Card({
+  children,
+  className,
+  pad = "0.5rem"
+}: ContainerProps & CardProps) {
   return (
     <div className={className}>
       <style jsx>{`
         div {
-          padding: 0.5rem;
+          padding: ${pad};
           background-color: var(--color-shade);
           margin-bottom: 1rem;
         }
@@ -125,7 +133,9 @@ export function Nav({ hideBrand = false }: NavProps) {
           <Link href="/photography">
             <a>Photography</a>
           </Link>
-          <a href="/WilliamGoodall.pdf">Resume</a>
+          <Link href="/resume">
+            <a>Resume</a>
+          </Link>
           <Link href="/contact">
             <a>Contact</a>
           </Link>

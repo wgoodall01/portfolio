@@ -19,14 +19,13 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--color-primary);
 }
 
 a:hover {
   color: white;
   background-color: var(--color-primary);
   outline: 0.3rem solid var(--color-primary);
-  text-decoration-color: white;
 }
 
 h1,
