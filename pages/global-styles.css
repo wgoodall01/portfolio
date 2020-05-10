@@ -3,6 +3,7 @@ html {
   box-sizing: border-box;
 
   --color-primary: black;
+  --color-shade: rgba(0, 0, 0, 0.05);
   --content-width: 50rem;
 }
 

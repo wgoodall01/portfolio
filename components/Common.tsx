@@ -52,10 +52,9 @@ export function Card({ children, className }: ContainerProps) {
     <div className={className}>
       <style jsx>{`
         div {
-          position: relative;
-          padding: 1rem;
-          box-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
-          background-color: white;
+          padding: 0.5rem;
+          background-color: var(--color-shade);
+          margin-bottom: 1rem;
         }
       `}</style>
 

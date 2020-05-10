@@ -25,18 +25,11 @@ function Address({
   };
 
   return (
-    <div className="address">
+    <Card className="contact-address-card">
       <style jsx>{`
-        .address {
+        :global(.contact-address-card) {
           max-width: 25rem;
           margin-bottom: 1rem;
-          background-color: rgba(0, 0, 0, 0.05);
-          height: 2rem;
-          padding: 0 0.5rem;
-
-          display: flex;
-          flex-direction: row;
-          align-items: center;
         }
 
         span {
@@ -66,20 +59,22 @@ function Address({
         }
       `}</style>
 
-      <span>{name}</span>
-      <div className="value">
-        {href ? (
-          <a href={href} target="__blank">
-            {val}
-          </a>
-        ) : (
-          val
-        )}
-      </div>
-      <button className="copy" onClick={copy}>
-        📋
-      </button>
-    </div>
+      <HBox>
+        <span>{name}</span>
+        <div className="value">
+          {href ? (
+            <a href={href} target="__blank">
+              {val}
+            </a>
+          ) : (
+            val
+          )}
+        </div>
+        <button className="copy" onClick={copy}>
+          📋
+        </button>
+      </HBox>
+    </Card>
   );
 }
 
