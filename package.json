@@ -6,9 +6,10 @@
     "clean": "rm -rf .next out",
     "start": "next dev",
     "build": "next build && next export",
-    "serve": "serve out"
+    "serve": "PORT=3000 serve out"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "next": "9.3.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",

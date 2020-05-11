@@ -1,4 +1,5 @@
 import HeroVideo from "./HeroVideo";
+import classNames from "classnames";
 
 export interface SideVideoLayoutProps {
   children?: React.ReactNode;
@@ -26,7 +27,7 @@ export function StripeLayout({
           --desktop-thick: 40vw;
 
           --mobile-thin: 1rem;
-          --mobile-thick: 30vh;
+          --mobile-thick: 60vh;
         }
 
         .stripe {
@@ -35,8 +36,8 @@ export function StripeLayout({
 
         .content {
           flex: 1;
-
           display: flex;
+          flex-direction: column;
         }
 
         /* responsive mobile breakpoint */
@@ -117,31 +118,50 @@ export interface ContainerProps {
   // Vertically center the Container's content.
   // The container expands with flex:1
   center?: boolean;
+
+  // Expand to fill all available width
+  wide?: boolean;
 }
 
-export function Container({ children, center = false }: ContainerProps) {
+export function Container({
+  children,
+  center = false,
+  wide = false
+}: ContainerProps) {
   return (
-    <div className={center ? "is-centered" : ""}>
+    <div className={classNames({ "is-centered": center, "is-wide": wide })}>
       <style jsx>{`
         div {
+          --pad: 3rem;
+
           flex: 1;
-          max-width: 55rem;
+
+          width: 100%;
+          max-width: 50rem;
 
           display: flex;
           flex-direction: column;
 
-          padding: 3rem;
+          padding: var(--pad);
           margin-right: auto;
+        }
+
+        div + div {
+          margin-top: calc(-1.5 * var(--pad));
         }
 
         @media screen and (max-width: ${BREAKPOINT}) {
           div {
-            padding: 1rem;
+            --pad: 1rem;
           }
         }
 
         .is-centered {
           justify-content: center;
+        }
+
+        .is-wide {
+          max-width: unset;
         }
       `}</style>
 

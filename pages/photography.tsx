@@ -20,6 +20,11 @@ interface Props {
 export default function Photography({ thumbs }: Props) {
   return (
     <StripeLayout>
+      <style jsx>{`
+        .gallery-unpad {
+          margin: -8px;
+        }
+      `}</style>
       <Container>
         <Nav />
         <Display>Photography</Display>
@@ -28,8 +33,11 @@ export default function Photography({ thumbs }: Props) {
           fun, my camera comes with me. I find it really interesting to discover
           all the different ways that you can capture a particular moment.
         </p>
-
-        <Gallery photos={thumbs} margin={8} />
+      </Container>
+      <Container wide>
+        <div className="gallery-unpad">
+          <Gallery photos={thumbs} margin={8} />
+        </div>
       </Container>
     </StripeLayout>
   );
