@@ -20,7 +20,7 @@ export function StripeLayout({
       <style jsx>{`
         .container {
           position: absolute;
-          height: 100%;
+          min-height: 100%;
           width: 100%;
           display: flex;
 
@@ -143,6 +143,9 @@ export function Container({
 
           padding: var(--pad);
           margin-right: auto;
+
+          overflow-x: auto;
+          overflow-y: visible;
         }
 
         /* If we're the last child, fill all available space in flex parent */

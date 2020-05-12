@@ -28,6 +28,10 @@ a:hover {
   outline: 0.3rem solid var(--color-primary);
 }
 
+img {
+  max-width: 100%;
+}
+
 pre {
   background-color: var(--color-shade);
   padding: 1em;
