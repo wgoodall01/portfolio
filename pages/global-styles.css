@@ -40,6 +40,11 @@ blockquote {
   border-left: 1em solid var(--color-shade);
 }
 
+iframe {
+  border: 2px solid var(--color-shade);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+}
+
 blockquote > p {
   margin: 0;
 }

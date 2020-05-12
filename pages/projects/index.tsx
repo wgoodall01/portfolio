@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps = async () => {
     ...require(`./${name}.mdx`).meta
   }));
 
-  projects = projects.sort((a, b) => a.sortKey - b.sortKey);
+  projects = projects.sort((a, b) => b.sortKey - a.sortKey);
 
   return {
     props: { projects }
