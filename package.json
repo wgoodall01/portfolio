@@ -9,7 +9,11 @@
     "serve": "PORT=3000 serve out"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.1",
+    "@next/mdx": "^9.4.0",
+    "@octokit/graphql": "^4.4.0",
     "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
     "next": "9.3.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",

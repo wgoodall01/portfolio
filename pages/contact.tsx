@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Display, Nav, HBox, Card } from "../components/Common";
-import { StripeLayout, Container } from "../components/Layouts";
+import { Nav, HBox, Card } from "../components/Common";
+import { Container, PageLayout } from "../components/Layouts";
 import useHover from "../lib/useHover";
 import Head from "next/head";
 
@@ -113,25 +113,25 @@ export default function Contact() {
   });
 
   return (
-    <StripeLayout>
+    <Container>
       {/* Disable search engine indexing on this page. Anti-spam measure. */}
       <Head>
         <meta name="robots" content="none" />
       </Head>
 
-      <Container>
-        <Nav />
-        <Display>Contact Me</Display>
+      <h1>Contact Me</h1>
 
-        <noscript>
-          <p>
-            Sorry--You seem to have scripts turned off. For anti-spam purposes,
-            please turn on JS.
-          </p>
-        </noscript>
+      <noscript>
+        <p>
+          Sorry--You seem to have scripts turned off. For anti-spam purposes,
+          please turn on JS.
+        </p>
+      </noscript>
 
-        {visible ? <Info /> : <div>loading...</div>}
-      </Container>
-    </StripeLayout>
+      {visible ? <Info /> : <div>loading...</div>}
+    </Container>
   );
 }
+
+Contact.title = "Contact";
+Contact.layout = PageLayout;

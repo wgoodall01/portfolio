@@ -3,7 +3,7 @@ html {
   box-sizing: border-box;
 
   --color-primary: black;
-  --color-shade: rgba(0, 0, 0, 0.05);
+  --color-shade: rgba(0, 0, 0, 0.08);
   --content-width: 50rem;
 }
 
@@ -28,6 +28,32 @@ a:hover {
   outline: 0.3rem solid var(--color-primary);
 }
 
+pre {
+  background-color: var(--color-shade);
+  padding: 1em;
+  margin: 0.5em -1em;
+}
+
+blockquote {
+  padding: 0.5em 1em;
+  margin: 0;
+  border-left: 1em solid var(--color-shade);
+}
+
+blockquote > p {
+  margin: 0;
+}
+
+pre code {
+  background-color: unset;
+  padding: unset;
+}
+
+code {
+  background-color: var(--color-shade);
+  padding: 0.2em;
+}
+
 h1,
 h2 {
   font-family: "Playfair Display";
@@ -35,15 +61,13 @@ h2 {
 }
 
 h1 {
-  font-size: 1rem;
+  font-size: 3rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
-h3,
-h4,
-h5,
-h6 {
-  font-variant: small-caps;
-  letter-spacing: 1px;
+h2 {
+  font-size: 2rem;
 }
 
 h1,

@@ -1,4 +1,5 @@
 import HeroVideo from "./HeroVideo";
+import { Nav } from "./Common";
 import classNames from "classnames";
 
 export interface SideVideoLayoutProps {
@@ -98,7 +99,7 @@ export function StripeLayout({
         /* hide the video for print */
         @media print {
           .stripe {
-            display: hidden;
+            display: none;
           }
         }
       `}</style>
@@ -134,8 +135,6 @@ export function Container({
         div {
           --pad: 3rem;
 
-          flex: 1;
-
           width: 100%;
           max-width: 50rem;
 
@@ -146,20 +145,31 @@ export function Container({
           margin-right: auto;
         }
 
-        div + div {
-          margin-top: calc(-1.5 * var(--pad));
+        /* If we're the last child, fill all available space in flex parent */
+        div:last-child {
+          flex: 1;
         }
 
+        /* trim margin from vertically stacked Containers */
+        div + div {
+          margin-top: calc(-1 * var(--pad));
+          padding-top: 0;
+        }
+
+        /* shrink padding on mobile */
         @media screen and (max-width: ${BREAKPOINT}) {
           div {
             --pad: 1rem;
           }
         }
 
+        /* Expand and center content */
         .is-centered {
+          flex: 1;
           justify-content: center;
         }
 
+        /* Remove max-width to have a wide container */
         .is-wide {
           max-width: unset;
         }
@@ -169,3 +179,21 @@ export function Container({
     </div>
   );
 }
+
+export const PageLayout = ({ children }) => (
+  <StripeLayout>
+    <Container>
+      <Nav />
+    </Container>
+    {children}
+  </StripeLayout>
+);
+
+export const ProjectLayout = ({ children }) => (
+  <PageLayout>
+    <Container>
+      {/* Wrap in a div so we're not a flex container---this brings back collapsing margins */}
+      <div>{children}</div>
+    </Container>
+  </PageLayout>
+);

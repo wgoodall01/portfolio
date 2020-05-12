@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Card, Display, Nav } from "../components/Common";
+import { Card, Nav } from "../components/Common";
 import HeroVideo from "../components/HeroVideo";
 import { StripeLayout, Container } from "../components/Layouts";
 import Link from "next/link";
@@ -9,7 +9,7 @@ export default function Index() {
   return (
     <StripeLayout thick>
       <Container center>
-        <Display>William Goodall</Display>
+        <h1>William Goodall</h1>
         <Nav hideBrand />
       </Container>
     </StripeLayout>

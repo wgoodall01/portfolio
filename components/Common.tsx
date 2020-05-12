@@ -5,35 +5,6 @@ export interface ContainerProps {
   className?: string;
 }
 
-export interface DisplayProps {
-  overlap?: string;
-  hang?: string;
-  opacity?: number;
-}
-
-export function Display({
-  children,
-  className
-}: ContainerProps & DisplayProps) {
-  return (
-    <h1 className={className}>
-      <style jsx>{`
-        h1 {
-          display: block;
-          position: relative;
-
-          font-size: 3rem;
-
-          paddding: 2rem 1rem;
-
-          margin-top: 2rem;
-        }
-      `}</style>
-      {children}
-    </h1>
-  );
-}
-
 export function Shade({ children, className }: ContainerProps) {
   return (
     <div className={className}>

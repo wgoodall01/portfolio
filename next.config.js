@@ -1,6 +1,8 @@
 const path = require("path");
 
-module.exports = {
+let conf = {
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+
   serverRuntimeConfig: {
     photos: {
       IN_DIR: path.resolve("./photos"),
@@ -10,3 +12,11 @@ module.exports = {
     }
   }
 };
+
+// Add MDX support
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/
+});
+conf = withMDX(conf);
+
+module.exports = conf;

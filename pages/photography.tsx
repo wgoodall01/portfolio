@@ -1,5 +1,5 @@
-import { Display, Nav } from "../components/Common";
-import { StripeLayout, Container } from "../components/Layouts";
+import { Nav } from "../components/Common";
+import { Container, PageLayout } from "../components/Layouts";
 import Gallery from "react-photo-gallery";
 import getConfig from "next/config";
 import sharp from "sharp";
@@ -19,15 +19,14 @@ interface Props {
 
 export default function Photography({ thumbs }: Props) {
   return (
-    <StripeLayout>
+    <>
       <style jsx>{`
         .gallery-unpad {
           margin: -8px;
         }
       `}</style>
       <Container>
-        <Nav />
-        <Display>Photography</Display>
+        <h1>Photography</h1>
         <p>
           I do photography as a hobby—whenever I go somewhere or do something
           fun, my camera comes with me. I find it really interesting to discover
@@ -39,9 +38,12 @@ export default function Photography({ thumbs }: Props) {
           <Gallery photos={thumbs} margin={8} />
         </div>
       </Container>
-    </StripeLayout>
+    </>
   );
 }
+
+Photography.title = "Photography";
+Photography.layout = PageLayout;
 
 /**
  * This function generates thumbnails from the photos, and copies them into Next's output directory.
